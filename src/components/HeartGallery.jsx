@@ -3,23 +3,23 @@ import './HeartGallery.css'
 
 const galleryData = [
     {
-        photo: '../assets/1.jpg',
+        photo: '../../public/1.jpg',
         text: 'Самая вкусная еда - твоя'
     },
     {
-        photo: '../assets/2.jpg',
+        photo: '../../public/2.jpg',
         text: 'Самые лучшие моменты - с тобой'
     },
     {
-        photo: '../assets/3.jpg',
+        photo: '../../public/3.jpg',
         text: 'Ты светишься ярче звезд'
     },
     {
-        photo: '../assets/4.jpg',
+        photo: '../../public/4.jpg',
         text: 'Твоя нежность не знает границ'
     },
     {
-        photo: '../assets/5.jpg',
+        photo: '../../public/5.jpg',
         text: 'Самое сладкое - твои поцелуи'
     }
 ]
