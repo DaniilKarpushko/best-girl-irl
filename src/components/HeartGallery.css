@@ -1,0 +1,288 @@
+/* ========== HEART GALLERY LAYOUT ========== */
+.heart-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 3vw, 40px);
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+}
+
+/* ========== HEART CONTAINER ========== */
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 2vw, 24px);
+    flex-shrink: 0;
+}
+
+.heart-wrapper {
+    width: clamp(220px, 55vmin, 420px);
+    height: clamp(220px, 55vmin, 420px);
+    position: relative;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    filter: drop-shadow(0 10px 40px rgba(255, 23, 68, 0.4));
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.heart-wrapper:hover {
+    filter: drop-shadow(0 15px 50px rgba(255, 23, 68, 0.6));
+}
+
+/* ========== BEATING ANIMATION ========== */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.05);
+    }
+    10% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.08);
+    }
+    25% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========== HEART SVG ========== */
+.heart-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.heart-bg {
+    opacity: 0.15;
+}
+
+/* ========== IMAGE TRANSITIONS ========== */
+.heart-image {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.heart-image.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.heart-image.fade-out-next {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.heart-image.fade-out-prev {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* ========== TEXT ========== */
+.heart-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(18px, 4vmin, 32px);
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-shadow:
+            0 2px 10px rgba(180, 0, 50, 0.4),
+            0 0 30px rgba(255, 100, 150, 0.3);
+    max-width: clamp(250px, 60vw, 500px);
+    line-height: 1.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-height: 2.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-text.text-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heart-text.text-fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ========== NAV ARROWS ========== */
+.nav-arrow {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: clamp(44px, 8vmin, 64px);
+    height: clamp(44px, 8vmin, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    outline: none;
+    z-index: 2;
+}
+
+.nav-arrow svg {
+    width: clamp(20px, 4vmin, 28px);
+    height: clamp(20px, 4vmin, 28px);
+}
+
+.nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(255, 100, 150, 0.4);
+}
+
+.nav-arrow:active {
+    transform: scale(0.95);
+}
+
+.nav-arrow--left:hover {
+    transform: scale(1.1) translateX(-3px);
+}
+
+.nav-arrow--right:hover {
+    transform: scale(1.1) translateX(3px);
+}
+
+/* ========== DOT INDICATORS ========== */
+.dots {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+.dot--active {
+    background: #fff;
+    border-color: #fff;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.dot:hover:not(.dot--active) {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* ========== RESPONSIVE: SMALL PHONES ========== */
+@media (max-width: 480px) {
+    .heart-gallery {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ========== RESPONSIVE: LANDSCAPE PHONES ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .heart-wrapper {
+        width: clamp(160px, 40vmin, 280px);
+        height: clamp(160px, 40vmin, 280px);
+    }
+
+    .heart-text {
+        font-size: clamp(14px, 3vmin, 22px);
+        min-height: auto;
+    }
+
+    .heart-container {
+        gap: 8px;
+    }
+
+    .dots {
+        gap: 6px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* ========== RESPONSIVE: TABLETS ========== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .heart-wrapper {
+        width: clamp(280px, 45vmin, 380px);
+        height: clamp(280px, 45vmin, 380px);
+    }
+}
+
+/* ========== RESPONSIVE: LARGE SCREENS ========== */
+@media (min-width: 1200px) {
+    .heart-gallery {
+        gap: 60px;
+    }
+
+    .heart-wrapper {
+        width: 420px;
+        height: 420px;
+    }
+
+    .nav-arrow {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nav-arrow svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+    .heart-wrapper {
+        animation: none;
+    }
+
+    .heart-image,
+    .heart-text,
+    .nav-arrow,
+    .dot {
+        transition: none;
+    }
+}
